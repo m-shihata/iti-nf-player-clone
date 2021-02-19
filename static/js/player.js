@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadVideo(video, data.sources);
 
-    loadMeta(data.meta);       
-
+    loadMeta(data.meta);   
+    
     // Keyboard event listeners
     document.addEventListener('keyup', (e) => {
         if(e.key==' '){
@@ -89,7 +89,7 @@ function volumeDown() {
     setVolume(v); 
 }
 
-// Set volume equal to value
+// Set volume equal to value of the range
 function volumeEqual(e) {
     v = e.target.value;
     setVolume(v);
@@ -105,9 +105,9 @@ function muteUnmute() {
     } 
 }
 
-// set volume
-function setVolume(event) {
-    video.volume = event.target.value/10;
+// set volume from mute button
+function setVolume(v) {
+    video.volume = v/10;
     console.log('Volume', video.volume);
 }
 
@@ -146,7 +146,6 @@ function handleSeekbarClick(e){
 function handleTimeupdate() {
     const subtitles = document.querySelector('#subtitles');
     const seekbar = document.querySelector('#seekbar');
-    const seekbarLoaded = document.querySelector('#seekbarLoaded');
     const seekbarUpper = document.querySelector('#seekbarUpper');
     const seekbarThumb = document.querySelector('#seekbarThumb');
     const seekbarRemainingTime = document.querySelector('#seekbarRemainingTime');
@@ -166,11 +165,6 @@ function handleTimeupdate() {
     // sync seekbar and thumb with current time
     const x = (video.currentTime / video.duration) * (seekbar.clientWidth);
     seekbarUpper.style.width = `${x}px`;
-    // fake Buffer
-    seekbarLoaded.style.width = `${Math.ceil(x/100)*100 + 20 <= seekbar.clientWidth ? Math.ceil(x/100)*100 + 20 : seekbar.clientWidth}px`;
-    // Real Buffer
-    // console.log(video.buffered);
-    // seekbarLoaded.style.width =  `${(video.buffered.end(video.buffered.length-1) / video.duration) * (seekbar.clientWidth)}px`;
     seekbarThumb.style.left = `${x}px`;
 
     // time left 

@@ -61,7 +61,6 @@
                     <div class="d-flex" id="seekbarContainer">
                         <div class="w-100" id="seekbar" onclick="handleSeekbarClick(event);">
                             <div id="seekbarLower"></div>
-                            <div id="seekbarLoaded"></div>
                             <div id="seekbarUpper"></div>
                             <div id="seekbarThumb"></div>
                         </div>
@@ -89,34 +88,13 @@
                             <button class="ctrl-btn" id="muteUnmuteBtn" onclick="muteUnmute();">
                                 <img id="volumeIcon" src="static/icons/volumeMedium.svg">
                             </button>
-                            <input class="mb-2" type="range" nin="0" max="10" onchange="setVolume(event);">                         
+                            <input id="volumeRange" class="mb-2" type="range" nin="0" max="10" onchange="volumeEqual(event);">                         
                         </div>
                         
                         <!-- Title -->
                         <div class="mr-auto" id="titleContainer">
                             <h4 class="text-nowrap" id="title"></h4>
                         </div>
-
-                        <!-- Report a problem -->
-                        <div class="report-problem-container">
-                            <button 
-                                class="ctrl-btn" id="reportProblemBtn" onclick="doNothing();"
-                                data-toggle="popover" data-placement="top" data-offset="-60px"
-                                data-container=".report-problem-container" data-target="#reportProblemTarget"
-                            >
-                                <img src="static/icons/reportProblem.svg"></button>
-                            <div class="d-none" id="reportProblemTarget">
-                                <a 
-                                    class="text-white" style="font-size: 2.3em;"
-                                    href="#"
-                                >
-                                    Something wrong? Tell us.
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Subtitle Controls -->
-                        <button class="ctrl-btn" id="subtitlesBtn" onclick="doNothing();">
-                            <img src="static/icons/subtitles.svg"></button>
 
                         <!-- Speed Controls -->
                         <div class="speed-container">

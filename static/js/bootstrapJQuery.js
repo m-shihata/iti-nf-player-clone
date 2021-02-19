@@ -29,4 +29,8 @@ $("[data-toggle='popover']").each(function(index, element) {
     });
 });
 
+$(function() {
+	$('[type="range"], h4>span').css('filter', 'hue-rotate(-' + '230' + 'deg)');
+});
+
 

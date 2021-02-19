@@ -85,18 +85,13 @@
                         </button>
 
                         <!-- Volume Controls -->
-                        <div class="volume-container">
-                            <button class="ctrl-btn" id="muteUnmuteBtn" onclick="muteUnmute();"
-                                data-toggle="popover" data-placement="top" data-offset=""
-                                data-container=".volume-container" data-target="#volumeTarget"
-                            >
+                        <div class="volume-container d-flex">
+                            <button class="ctrl-btn" id="muteUnmuteBtn" onclick="muteUnmute();">
                                 <img id="volumeIcon" src="static/icons/volumeMedium.svg">
                             </button>
-                            <div class="d-none" id="volumeTarget">                          
-        
-                            </div>
+                            <input class="mb-2" type="range" nin="0" max="10" onchange="setVolume(event);">                         
                         </div>
-
+                        
                         <!-- Title -->
                         <div class="mr-auto" id="titleContainer">
                             <h4 class="text-nowrap" id="title"></h4>

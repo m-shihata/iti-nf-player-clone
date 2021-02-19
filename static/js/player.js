@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set default settings 
     video.volume = .5; 
-    video.currentTime = localStorage[`video${data.meta.id}`]
 
+    video.currentTime = localStorage[`video${data.meta.id}`] 
 
     loadVideo(video, data.sources);
 
@@ -106,8 +106,8 @@ function muteUnmute() {
 }
 
 // set volume
-function setVolume(v) {
-    video.volume = v/10;
+function setVolume(event) {
+    video.volume = event.target.value/10;
     console.log('Volume', video.volume);
 }
 

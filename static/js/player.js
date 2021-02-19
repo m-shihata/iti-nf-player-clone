@@ -9,7 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set default settings 
     video.volume = .5; 
-    video.currentTime = localStorage[`video${data.meta.id}`]
+
+    if (localStorage[`video${data.meta.id}`]) {
+        video.currentTime = localStorage[`video${data.meta.id}`]; 
+    } else {
+        video.currentTime = 0;
+    }
 
     // Do Fetch Here... 
 

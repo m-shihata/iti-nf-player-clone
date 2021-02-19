@@ -4,21 +4,16 @@ var v = 5;
 // Make the code run only after document loaded
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Elements 
     const video = document.querySelector('#video');
 
     // Set default settings 
     video.volume = .5; 
     video.currentTime = localStorage[`video${data.meta.id}`]
 
-    // Do Fetch Here... 
 
     loadVideo(video, data.sources);
 
-    loadMeta(data.meta);        // load meta data
-    // loadDefaultSub();        // load the default subtitle track
-    // loadDefaultAudio();      // load the default audio track
-
+    loadMeta(data.meta);       
 
     // Keyboard event listeners
     document.addEventListener('keyup', (e) => {
